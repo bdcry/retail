@@ -11,7 +11,7 @@ const TodoList = ({ todos, onChange }: TodoListProps): JSX.Element => {
           id={todo.id}
           title={todo.title}
           completed={todo.completed}
-          onCompletedChange={onChange}
+          onToggleCompleted={onChange}
         />
       ))}
     </ul>

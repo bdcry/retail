@@ -1,7 +1,7 @@
 import type { JSX } from 'react';
 import type { TodoItemProps } from './types';
 
-const TodoItem = ({ id, title, completed, onCompletedChange }: TodoItemProps): JSX.Element => {
+const TodoItem = ({ id, title, completed, onToggleCompleted }: TodoItemProps): JSX.Element => {
   const baseTaskItem = 'border-2 rounded-md';
   const variantTaskItem = completed ? 'border-green-500' : 'border-gray-400';
   const baseTitle = 'text-lg';
@@ -16,7 +16,7 @@ const TodoItem = ({ id, title, completed, onCompletedChange }: TodoItemProps): J
             type="checkbox"
             checked={completed}
             className="scale-125"
-            onChange={() => onCompletedChange(id)}
+            onChange={() => onToggleCompleted(id)}
           />
         </label>
       </li>
