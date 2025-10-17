@@ -18,9 +18,8 @@ const App = () => {
 
   const handleDeleteTask = (id: number): void => {
     setTodos((prevTodos) => prevTodos.filter((todo) => todo.id !== id));
-  }
+  };
 
-  console.log(todos);
   return (
     <main className="p-10 h-screen overflow-auto">
       <h1 className="font-bold text-center text-4xl mb-10">ReTail Todos App</h1>
