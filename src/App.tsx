@@ -6,23 +6,27 @@ import TodoInput from './components/TodoInput/TodoInput';
 const App = () => {
   const [todos, setTodos] = useState(stupidData);
 
-  const setTodoIsCompleted = (id: number): void => {
+  const handleTodoIsCompleted = (id: number): void => {
     setTodos((prevTodos) =>
       prevTodos.map((todo) => (todo.id === id ? { ...todo, completed: !todo.completed } : todo))
     );
   };
 
-  const addTask = (title: string): void => {
+  const handleAddTask = (title: string): void => {
     setTodos((prevTodos) => [...prevTodos, { id: todos.length + 1, title, completed: false }]);
   };
 
+  const handleDeleteTask = (id: number): void => {
+    setTodos((prevTodos) => prevTodos.filter((todo) => todo.id !== id));
+  }
+
   console.log(todos);
   return (
-    <main className="p-10 h-screen">
+    <main className="p-10 h-screen overflow-auto">
       <h1 className="font-bold text-center text-4xl mb-10">ReTail Todos App</h1>
       <section className="bg-slate-100 rounded-2xl max-w-md mx-auto p-5 shadow-xl">
-        <TodoInput onSumbit={addTask} />
-        <TodoList todos={todos} onChange={setTodoIsCompleted} />
+        <TodoInput onSumbit={handleAddTask} />
+        <TodoList todos={todos} onChange={handleTodoIsCompleted} onDelete={handleDeleteTask} />
       </section>
     </main>
   );

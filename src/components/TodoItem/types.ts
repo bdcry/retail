@@ -3,4 +3,5 @@ export type TodoItemProps = {
   title: string;
   completed: boolean;
   onToggleCompleted: (id: number) => void;
+  onDeleteTask: (id: number) => void;
 };
