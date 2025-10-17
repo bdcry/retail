@@ -7,7 +7,7 @@ const TodoInput = ({ onSumbit }: TodoInputProps): JSX.Element => {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
     if (!input.trim()) return;
-    onSumbit(input);
+    onSumbit(input.trim());
     setInput('');
   };
 
